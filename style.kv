@@ -13,14 +13,14 @@
                     MDLabel:
                         id:txt  
                         text:''
-                        size_hint: 1, 0.1
+                        size_hint: 1, 0.087
                         halign:'center'
                         md_bg_color: [1,1,1,0.5]
                     MDBoxLayout:
                         orientation: 'horizontal'
                         MDGridLayout:
-                            cols:4
-                            spacing:3
+                            cols:6
+                            spacing:6
                             MDRectangleFlatButton:
                                 id:btn1
                                 text:'1'
@@ -38,6 +38,14 @@
                                 text:'4'
                                 on_press:txt.text=txt.text+btn4.text
                             MDRectangleFlatButton:
+                                text:'¶'
+                                text_color: "white"
+                                on_press:root.clear1()
+                            MDRectangleFlatButton:
+                                text:'c'
+                                text_color: "white"
+                                on_press:txt.text=''
+                            MDRectangleFlatButton:
                                 id:btn5
                                 text:'5'
                                 on_press:txt.text=txt.text+btn5.text
@@ -54,6 +62,14 @@
                                 text:'8'
                                 on_press:txt.text=txt.text+btn8.text
                             MDRectangleFlatButton:
+                                text:'x'
+                                text_color: "white"
+                                on_press:root.zar()
+                            MDRectangleFlatButton:
+                                text:'/'
+                                text_color: "white"
+                                on_press:root.tagh()
+                            MDRectangleFlatButton:
                                 id:btn9
                                 text:'9'
                                 on_press:txt.text=txt.text+btn9.text
@@ -64,66 +80,59 @@
                             MDRectangleFlatButton:
                                 text:'.'
                                 on_press:root.mom() 
-                        MDGridLayout:
-                            cols:2
-                            spacing:3
                             MDRectangleFlatButton:
-                                text:'¶'
-                                on_press:root.clear1()
-                            MDRectangleFlatButton:
-                                text:'c'
-                                on_press:txt.text=''
-                            MDRectangleFlatButton:
-                                text:'x'
-                                on_press:root.zar()
-                            MDRectangleFlatButton:
-                                text:'/'
-                                on_press:root.tagh()
-                            MDRectangleFlatButton:
-                                text:'+'
-                                on_press:root.jam()
+                                text:'+/-'
+                                text_color:'white'
+                                on_press:root.mosman()
                             MDRectangleFlatButton:
                                 text:'-'
+                                text_color: "white"
                                 on_press:root.kam()
                             MDRectangleFlatButton:
+                                text:'√'
+                                text_color: "white"
+                                on_press:root.radic()
+                            MDRectangleFlatButton:
+                                text:'sin'
+                                text_color:'green'
+                                on_press:root.sin()
+                            MDRectangleFlatButton:
+                                text:'cos'
+                                text_color:'green'
+                                on_press:root.cos()
+                            MDRectangleFlatButton:
+                                text:'tan'
+                                text_color:'green'
+                                on_press:root.tan()
+                            MDRectangleFlatButton:
+                                text:'cot'
+                                text_color:'green'
+                                on_press:root.cot()
+                            MDRectangleFlatButton:
+                                text:'+'
+                                text_color: "white"
+                                on_press:root.jam()
+                            MDRectangleFlatButton:
                                 text:'='
+                                text_color: "white"
                                 on_press:root.result()
                             MDRectangleFlatButton:
-                                text:'√'
-                                on_press:root.radic()
-            MDScreen:
-                MDAnchorLayout:
-                    anchor_x:'left'
-                    anchor_y:'center'
-                    MDGridLayout:
-                        cols:2
-                        padding:5
-                        size_hint: None, None 
-                        MDRectangleFlatButton:
-                            text:'cos'
-                            on_press:root.cos()
-                        MDRectangleFlatButton:
-                            text:'sin'
-                            on_press:root.sin()
-                        MDRectangleFlatButton:
-                            text:'tan'
-                            on_press:root.tan()
-                        MDRectangleFlatButton:
-                            text:'cot'
-                            on_press:root.cot()
-                        MDRectangleFlatButton:
-                            text:'cosh'
-                            on_press:root.cosh()
-                        MDRectangleFlatButton:
-                            text:'sinh'
-                            on_press:root.sinh()
-                        MDRectangleFlatButton:
-                            text:'tanh'
-                            on_press:root.tanh()
-                        MDRectangleFlatButton:
-                            text:'coth'
-                            on_press:root.coth()
-    
+                                text:'cosh'
+                                text_color:'green'
+                                on_press:root.cosh()
+                            MDRectangleFlatButton:
+                                text:'sinh'
+                                text_color:'green'
+                                on_press:root.sinh()
+                            MDRectangleFlatButton:
+                                text:'tanh'
+                                text_color:'green'
+                                on_press:root.tanh()
+                            MDRectangleFlatButton:
+                                text:'coth'
+                                text_color:'green'
+                                on_press:root.coth()
+#  /////////////////////// 
 # ////////FAKE///////////
         MDScreen:
             name:'fake'

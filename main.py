@@ -3,8 +3,8 @@ from kivy.lang import Builder
 from kivymd.uix.anchorlayout import MDAnchorLayout
 from kivy.properties import ObjectProperty
 import math
-from kivy.core.window import Window
-Window.size = (600, 450)
+# from kivy.core.window import Window
+# Window.size = (600, 450)
 
 Builder.load_file('style.kv')
 
@@ -64,19 +64,21 @@ class Style(MDAnchorLayout):
         self.num1=self.txt.text 
         self.txt.text=''
     def result(self):
-        if self.amal=='*':
-            num2=self.txt.text
-            self.txt.text=str(float(self.num1)*float(num2))
-        elif self.amal=='/':
-            num2=self.txt.text
-            self.txt.text=str(float(self.num1)/float(num2))
-        elif self.amal=='+':
-            num2=self.txt.text
-            self.txt.text=str(float(self.num1)+float(num2))
-        elif self.amal=='-':
-            num2=self.txt.text
-            self.txt.text=str(float(self.num1)-float(num2))
-        else:pass
+        try:
+            if self.amal=='*':
+                num2=self.txt.text
+                self.txt.text=str(float(self.num1)*float(num2))
+            elif self.amal=='/':
+                num2=self.txt.text
+                self.txt.text=str(float(self.num1)/float(num2))
+            elif self.amal=='+':
+                num2=self.txt.text
+                self.txt.text=str(float(self.num1)+float(num2))
+            elif self.amal=='-':
+                num2=self.txt.text
+                self.txt.text=str(float(self.num1)-float(num2))
+            else:pass
+        except:pass 
     def radic(self):
         try:
             t=math.sqrt(float(self.txt.text))
@@ -126,6 +128,12 @@ class Style(MDAnchorLayout):
             self.txt.text=str(tt)
         except:pass 
 
+    def mosman(self):
+        try:
+            q=float(self.txt.text)
+            q*=-1
+            self.txt.text=str(q)
+        except:pass 
 
 class MainApp(MDApp):
     def build(self):
