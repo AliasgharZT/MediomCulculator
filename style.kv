@@ -1,5 +1,10 @@
 <Style>:
     txt:txt
+    mn:mn 
+    _fpl:fpl_ 
+    _xy:xy_ 
+    _xyz:xyz_
+    _integ:integ_
     MDScreenManager:
         id:mn 
 # /////////MAIN///////////
@@ -28,7 +33,7 @@
                                 MDRectangleFlatButton:
                                     id:btn1
                                     text:'1'
-                                    on_press:txt.text=txt.text+btn1.text
+                                    on_press:txt.text+=btn1.text 
                                 MDRectangleFlatButton:
                                     id:btn2
                                     text:'2'
@@ -136,8 +141,131 @@
                                     text:'coth'
                                     text_color:'green'
                                     on_press:root.coth()
-#  /////////////////////// 
+
+            MDScreen:
+                MDFloatingActionButtonSpeedDial:
+                    root_button_anim: True
+                    data:{'Fac!,Pow^,log_a':['calculator',"on_press",lambda x:root.fpl()],'{xy=c/xy=c}':['code-not-equal-variant',"on_press",lambda x:root.xy()],'{xyz=c/xyz=c/xyz=c}':['equalizer',"on_press",lambda x:root.xyz()],'(x^a){+-*/}(b^c){+-*/}..-x=c':['abacus',"on_press",lambda x:root.integ()]}
 # ////////FAKE///////////
         MDScreen:
-            name:'fake'
-
+            name:'fpl'
+            MDAnchorLayout:
+                anchor_x:'center'
+                anchor_y:'center'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 0.5, 0.2
+                    MDTextField:
+                        id:fpl_
+                        mode:'round'
+                    MDAnchorLayout:
+                        anchor_x:'center'
+                        anchor_y:'center'
+                        MDGridLayout:
+                            cols:3
+                            padding:3
+                            spacing:5
+                            MDRectangleFlatButton:
+                                text:'fact'
+                                on_press:root.fact()
+                            MDRectangleFlatButton:
+                                text:'Pow'
+                                on_press:root.power()
+                            MDRectangleFlatButton:
+                                text:'Log'
+                                on_press:root.loga()
+                            MDRectangleFlatButton:
+                                text:'Clear'
+                                text_color:'green'
+                                on_press:fpl_.text=''
+                            MDRectangleFlatButton:
+                                text:'Back'
+                                text_color:'white'
+                                on_press:mn.current='main'   
+        MDScreen:
+            name:'xy'
+            MDAnchorLayout:
+                anchor_x:'center'
+                anchor_y:'center'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 0.5, 0.2
+                    MDTextField:
+                        id:xy_
+                        mode:'round'
+                    MDAnchorLayout:
+                        anchor_x:'center'
+                        anchor_y:'center'
+                        MDGridLayout:
+                            cols:2
+                            padding:3
+                            spacing:5
+                            MDRectangleFlatButton:
+                                text:'Clear'
+                                text_color:'green'
+                                on_press:xy_.text=''
+                            MDRectangleFlatButton:
+                                text:'Solve'
+                                on_press:root.solve_xy()
+                            MDRectangleFlatButton:
+                                text:'Back'
+                                text_color:'white'
+                                on_press:mn.current='main'   
+        MDScreen:
+            name:'xyz'
+            MDAnchorLayout:
+                anchor_x:'center'
+                anchor_y:'center'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 0.5, 0.2
+                    MDTextField:
+                        id:xyz_
+                        mode:'round'
+                    MDAnchorLayout:
+                        anchor_x:'center'
+                        anchor_y:'center'
+                        MDGridLayout:
+                            cols:2
+                            padding:3
+                            spacing:5
+                            MDRectangleFlatButton:
+                                text:'Clear'
+                                text_color:'green'
+                                on_press:xyz_.text=''
+                            MDRectangleFlatButton:
+                                text:'Solve'
+                                on_press:root.solve_xyz()
+                            MDRectangleFlatButton:
+                                text:'Back'
+                                text_color:'white'
+                                on_press:mn.current='main'  
+        MDScreen:
+            name:'integ'
+            MDAnchorLayout:
+                anchor_x:'center'
+                anchor_y:'center'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 0.5, 0.2
+                    MDTextField:
+                        id:integ_
+                        mode:'round'
+                    MDAnchorLayout:
+                        anchor_x:'center'
+                        anchor_y:'center'
+                        MDGridLayout:
+                            cols:2
+                            padding:3
+                            spacing:5
+                            MDRectangleFlatButton:
+                                text:'Clear'
+                                text_color:'green'
+                                on_press:integ_.text=''
+                            MDRectangleFlatButton:
+                                text:'Solve'
+                                on_press:root.solve_integ()
+                            MDRectangleFlatButton:
+                                text:'Back'
+                                text_color:'white'
+                                on_press:mn.current='main'
