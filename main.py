@@ -273,7 +273,6 @@ class Style(MDAnchorLayout):
                         z=x/x 
                     else:pass
                     r.append(z)
-                    r.append(z)
                 elif q[w]=='-':
                     if (q[w-2]>='0' and q[w-2]<='9')and(q[w-1]>='0' and q[w-1]<='9'):
                         z=int(q[w-2])-int(q[w-1])
@@ -284,7 +283,6 @@ class Style(MDAnchorLayout):
                     elif (q[w-2]=='x')and(q[w-1]=='x'):
                         z=x-x 
                     else:pass
-                    r.append(z)
                     r.append(z)
                 elif q[w]=='+':
                     if (q[w-2]>='0' and q[w-2]<='9')and(q[w-1]>='0' and q[w-1]<='9'):
@@ -297,41 +295,64 @@ class Style(MDAnchorLayout):
                         z=x+x 
                     else:pass
                     r.append(z)
-                    r.append(z)
                 elif q[w]=='^':
                     if (q[w-2]>='0' and q[w-2]<='9')and(q[w-1]>='0' and q[w-1]<='9'):
-                        z=int(q[w-2])**int(q[w-1])
+                        z=pow(int(q[w-2]),int(q[w-1]))
                     elif  (q[w-2]>='0' and q[w-2]<='9')and(q[w-1]=='x'):
-                        z=int(q[w-2])**x
+                        z=pow(int(q[w-2]),x)
                     elif (q[w-2]=='x')and(q[w-1]>='0' and q[w-1]<='9'):
-                        z=x**int(q[w-1])
+                        z=pow(x,int(q[w-1]))
                     elif (q[w-2]=='x')and(q[w-1]=='x'):
-                        z=x**x 
+                        z=pow(x,x )
                     else:pass
-                    r.append(z)
                     r.append(z)
                 else:pass 
             else:
                 if q[w]=='*':
-                    z=1
+                    z=None
+                    e=0
                     for a in r:
-                        z*=a
+                        if e==0:
+                            z=a 
+                            e+=1
+                        else:
+                            z*=a 
                 elif q[w]=='/':
-                    z=1
+                    z=None
+                    e=0
                     for a in r:
-                        z/=a
+                        if e==0:
+                            z=a 
+                            e+=1
+                        else:
+                            z/=a 
                 elif q[w]=='+':
-                    z=0
+                    z=None
+                    e=0
                     for a in r:
-                        z+=a
+                        if e==0:
+                            z=a 
+                            e+=1
+                        else:
+                            z+=a 
                 elif q[w]=='-':
-                    z=0
+                    z=None
+                    e=0
                     for a in r:
-                        z-=a
+                        if e==0:
+                            z=a 
+                            e+=1
+                        else:
+                            z-=a 
                 elif q[w]=='^':
-                    z=1
+                    z=None
+                    e=0
                     for a in r:
-                        z^=a
+                        if e==0:
+                            z=a 
+                            e+=1
+                        else:
+                            z=pow(z,a)
                 else:pass
         return z 
     def solve_integ(self):
